@@ -1,0 +1,9 @@
+Overview
+--------
+
+This project has been created to provide a very simple, local implementation of the Amazon Simple Queue Service, as specified here:
+
+http://docs.amazonwebservices.com/AWSSimpleQueueService/2006-04-01/REST_RestOperations.html
+
+The project is broken into several implementations so that comparisons and benchmarks can be carried out across various frameworks/languages.
+
