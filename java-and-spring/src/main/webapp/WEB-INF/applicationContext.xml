@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<description>Brings together the internal business services and the underlying
+				 repository layer together.</description>
+	
+	<!-- Import services layer -->
+	<import resource="classpath:org/reallysqs/server/services/services.xml" />
+
+	<!-- Import repository layer -->
+	<import resource="classpath:org/reallysqs/server/repository/repository.xml"/>
+	
+</beans>

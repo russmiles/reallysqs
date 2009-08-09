@@ -1,0 +1,8 @@
+A very simple implementation of the REST interface to 
+the  Simple Queue Service.
+
+Uses the following main technologies:
+
+* Java 
+* Spring
+

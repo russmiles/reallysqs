@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/context
+						http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+	
+	<description>Declares the web layer beans.</description>
+	
+    <!-- Detect and register the controllers -->
+    <context:component-scan base-package="org.reallysqs.server.rest"/>
+    
+    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<property name="mediaTypes">
+			<map>
+				<entry key="atom" value="application/xml"/>
+				<entry key="xml" value="text/xml"/>
+			</map>
+		</property>
+		<property name="viewResolvers">
+			<list>
+				<bean class="org.springframework.web.servlet.view.BeanNameViewResolver"/>
+				<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+					<property name="prefix" value="/WEB-INF/jsp/"/>
+					<property name="suffix" value=".jsp"/>
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- Custom views for standard SQS responses -->
+	<bean id="queuesList" class="org.reallysqs.server.views.QueueListView"/>
+	
+	<bean id="createQueueResponse" class="org.reallysqs.server.views.CreateQueueResponseView"/>
+	
+	<bean id="receivedMessagesResponse" class="org.reallysqs.server.views.ReceivedMessagesResponseView"/>
+	
+</beans>

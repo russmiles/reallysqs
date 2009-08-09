@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<description>Specifies the Repository layer of the applications.
+				 Declares a simple, in-memory queue respository implementation.</description>
+				 
+	<bean id="queueRepository"
+		class="org.reallysqs.server.repository.internal.MapBasedQueueRepository">
+		<property name="queues">
+			<map key-type="java.lang.String" value-type="org.reallysqs.server.domain.Queue">
+				<entry key="queue1">
+					<bean class="org.reallysqs.server.domain.Queue">
+						<constructor-arg value="queue1" />
+						<property name="messages">
+							<list value-type="org.reallysqs.server.domain.Message">
+								<bean class="org.reallysqs.server.domain.Message">
+									<constructor-arg>
+										<value>Hello there for Amazon SQS!</value>
+									</constructor-arg>
+								</bean>
+							</list>
+						</property>
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+
+</beans>
